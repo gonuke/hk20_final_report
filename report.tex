@@ -7,21 +7,16 @@
 \begin{document}
 \input{titlepage}
 %% \input{exec}
+%%\glsunsetall
 \tableofcontents
-\listoffigures
-\begingroup
-\let\clearpage\relax
-\listoftables
-\endgroup
+\glsresetall
 \input{intro}
+\glsresetall
 \input{analysis}
-%% \input{thrust0}
-%% \input{thrust1}
-%% \input{thrust2}
-%% \input{thrust3}
-%% \input{thrust4}
-%% \input{thrust5}
-%% \input{summary}
-%%\input{refs}
+\input{code}
+\input{data}
+\input{materials}
+\input{summary}
+\input{refs}
 
 \end{document}

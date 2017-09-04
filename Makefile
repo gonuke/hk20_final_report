@@ -21,6 +21,13 @@ report.pdf: ${SOURCES}
 	pdflatex report.tex
 	pdflatex report.tex
 
+force:
+	pdflatex report.tex
+	bibtex prod.aux
+	bibtex ref.aux
+	pdflatex report.tex
+	pdflatex report.tex
+
 check: report.pdf
 	pdflatex report.tex | grep Citation | sort
 

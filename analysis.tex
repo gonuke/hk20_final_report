@@ -1,6 +1,6 @@
 \chapter{Nuclear Analysis of Fusion Energy Systems}
 
-\section{\gls{APEX}}
+\section{\acrfull{APEX}}
 
 This project began as part of the APEX study that had the goal of identifying
 a first wall and blanket system that could withstand much higher power
@@ -20,7 +20,7 @@ the addition of an activation calculation, it is possible to consider decay
 heat during off-normal conditions, dose rates during maintenance, and waste
 disposal ratings over the long term.
 
-\subsection{\gls{APPLE}}
+\subsection{\acrfull{APPLE}}
 
 The first concept was a flowing LI$_2$O paticulate blanket concept without a
 structural first wall.  Neutronics calculations were performed for the
@@ -45,7 +45,7 @@ attractive safety features resulting from the significant reduction in
 radioactivity and decay heat generation in the structural
 material.\citeprod{fdm1106}
 
-\subsection{\gls{EVOLVE}}
+\subsection{\acrfull{EVOLVE}}
 
 Another early concept relied on the evaporation of liquid lithium at the first
 wall to absorb the energy and protect the solid components.  The neutronics
@@ -134,7 +134,7 @@ cm$^3$/s) to remove the generated $^{208}$Bi and allow \gls{Pb} disposal as
 low level waste.\citeprod{fdm1220}
 
 
-\subsection{\gls{TBR}}
+\subsection{\acrfull{TBR}}
 
 In comparing different potential molten salts, a key performance criteria is
 the \gls{TBR}.  The molten salt LiF--NaF--BeF$_2$ (Flinabe) with ratio 1:1:1 has
@@ -461,38 +461,159 @@ work was needed to assess safety concerns such as thermal response during
 accident conditions and the mobilization of the radiological inventories and
 site boundary dose following such accidents.\citeprod{fdm1247,fdm1257}
 
-\subsection{\gls{DCLL} \gls{TBM} Design and Analysis}
+\subsection{\acrfull{DCLL} \acrfull{TBM} Design and Analysis}
 
 Various strategic decisions combined with early scoping analysis results in
 the selection of a \gls{DCLL} \gls{TBM} concept, requiring more detailed
 neutronics design and analysis.
 
-Neutronics calculations were performed to determine the relevant nuclear
-performance parameters for the \gls{DCLL} \gls{TBM} developed by the U.S. for
-testing in ITER. These include tritium breeding, nuclear heating, radiation
-damage, and shielding requirements. The neutron wall loading at the TBM is
-0.78 MW/m$^2$. The front surface area of the module is 1.25 m$^2$. A 2 mm
-thick beryllium layer is utilized as a plasma facing material on the \gls{FS}
-\gls{FW}. The lithium in the lithium lead (Li$_{17}$Pb$_{83}$) eutectic is
-enriched to 90\% Li-6. The \gls{FS} alloy F82H is used for structural
-material. The total radial depth of the \gls{TBM} is 41.3 cm followed by a 30
-cm thick inlet/outlet piping zone.  A separate 316SS/H$_2$O shield plug is
-used behind the \gls{TBM}.
 
-The calculated local \gls{TBR} in the \gls{DCLL} \gls{TBM} is only 0.741
-because of the relatively small thickness used. During a D-T pulse with 500 MW
-fusion power, tritium is produced in the \gls{TBM} at the rate of
-3.2$\times$10$^{17}$ atoms/s (1.59$\times$10$^{-6}$ g/s). For the planned 3000
-pulses per year the annual tritium production in the TBM is 2.4
-g/year. Nuclear heating profiles in the different blanket constituent
-materials were determined for use in the thermal hydraulics analysis. The
-total nuclear heating in the \gls{TBM} is 0.982 MW. Adding the surface
-heating, the total thermal power to be removed from the \gls{TBM} is 1.357
-MW. The He coolant carries about 54\% of that power. For the ITER fluence goal
-of 0.3 MWa/m$^2$, the peak cumulative dpa and He production in the \gls{FW}
-are 5.7 dpa and 64 appm, respectively. The cumulative end-of-life He
-production in the inlet/outlet pipes is 0.34 appm allowing for rewelding.  We
-estimated that \textapprox 1 m thick shield plug is required behind the
-\gls{DCLL} \gls{TBM} to allow personnel access for
-maintenance.\citeprod{fdm1274}
+Neutronics calculations were performed to determine the relevant nuclear
+performance parameters for the reference US \gls{DCLL} ITER \gls{TBM}. These
+include tritium breeding, nuclear heating, radiation damage and
+transmutations, and shielding requirements. The neutron wall loading at the
+\gls{TBM} is 0.78 MW/m$^2$. The front surface area of the module is 0.8 m$^2$
+and the radial depth is 35 cm. The detailed \gls{CAD} model was utilized to
+divide the \gls{TBM} into 7 vertical layers and perform calculations for each
+with the appropriate radial build. Results for the 7 layers were combined
+using their heights to determine the overall integrated parameters for the
+\gls{TBM}.
+
+The calculated \gls{TBR} in the \gls{DCLL} \gls{TBM} is only 0.561 because of
+the relatively small thickness used. For the planned 3000 pulses per year the
+annual tritium production in the \gls{TBM} is 0.97 g. The total nuclear
+heating in the \gls{TBM} is 0.574 MW. For the ITER fluence goal of 0.3
+MWa/m$^2$, the peak cumulative radiation damage and He production in the FW
+are 5.1 dpa and 56 appm, respectively.  The corresponding end-of-life values
+for the SiC \gls{FCI} are 4.8 dpa and 409 He appm. The dominant metallic
+transmutation product in the \gls{FCI} is Mg that builds up to \textapprox 100
+appm at end-of-life of ITER and its impact on electrical and thermal
+conductivities of the \gls{FCI} need to be assessed particularly at elevated
+fluences in a fusion power plant. We estimated that \textapprox 1.2 m thick
+shield is required behind the \gls{DCLL} \gls{TBM} to allow personnel access
+for maintenance.\citeprod{fdm1274, fdm1360}
+
+
+Detailed 3-D neutronics calculations were performed for the US \gls{DCLL}
+\gls{TBM} to accurately account for the complex geometrical heterogeneity and
+impact of source profile and other in-vessel components. The neutronics
+calculations were performed directly in the \gls{CAD} model using the DAG-MCNP
+code that allows preserving the geometrical details. The 20 cm thick frame
+results in neutronics decoupling between the \gls{TBM} and adjacent shield
+modules. The \gls{TBM} \gls{CAD} model was inserted in the \gls{CAD} model for
+the frame and the integrated \gls{CAD} model was used in the 3-D
+analysis. Detailed high-resolution, high-fidelity profiles of the nuclear
+parameters were generated using fine mesh tallies. The \gls{TBM}
+heterogeneity, exact source profile, and inclusion of the surrounding frame
+and other in-vessel components result in lower \gls{TBM} nuclear parameters
+compared to the 1-D predictions. The detailed 3-D analysis with the
+surrounding massive water-cooled frame and representation of the exact source
+and other in-vessel components yields total tritium production in the TBM that
+is 45\% lower than the previous 1-D estimate (0.53 g/year). The detailed 3-D
+analysis of the \gls{TBM} yields total nuclear heating in the \gls{TBM} that
+is 35\% lower than the 1-D estimate of 0.574 MW. The detailed 3-D analysis of
+TBM with the surrounding massive water-cooled frame and representation of
+exact source and other in-vessel components yields 28\% lower peak dpa rate
+and 10\% lower peak He production rate in the \gls{FW} compared to the 1-D
+estimates. This is due to the more perpendicular angular distribution of
+incident source neutrons in the realistic 3-D configuration and reduced
+neutron multiplication and reflection from surrounding frame and other
+in-vessel components compared to the 1-D configuration with full coverage with
+\gls{DCLL} \gls{TBM}. This work clearly demonstrates the importance of
+preserving geometrical details in nuclear analyses of geometrically complex
+components in fusion systems.\citeprod{fdm1380}
+
+
+Additional analysis was carried out to consider the consequences of
+activation/transmutation of such a design.  The total radioactive inventory in
+the \gls{DCLL} \gls{TBM} at shutdown is relatively small (2.44 MCi) and drops
+rapidly within a minute to reach a level of \textapprox 0.7 MCi due to the
+decay of the Pb-207m isotope. It stays at that level for \textapprox 1 hr and
+drops slowly thereafter. The level is \textapprox 0.1 MCi after 1 year and is
+\textapprox 0.01 MCi after 10 years. The inventory is almost entirely due to
+the activation of the F82H structure in the \gls{TBM}, and in particular, to
+the structure in the back breeder channel, the back plate, and the shield. A
+few minutes after shutdown, the activation level in the Pb-17Li breeder is
+\textapprox 2 orders of magnitude lower than the level in the structure, even
+with the inclusion of the activation of the tritium bred while the activation
+in the SiC insert is \textapprox 2-6 orders of magnitude lower.
+
+At shutdown, the total decay heat is as low as \textapprox 0.022 MW. After the
+decay of the Pb-207m isotope, the total decay heat is attributed mainly to the
+structure. The total decay heat after 1 hour, 1 day, 1 year, 10 years, and 100
+years is 3.5$times$10$^{-3}$ MW, 1$\times$10$^{-3}$ MW, 1$\times$10$^{-4}$ MW,
+2$\times$10$^{-6}$ , and 7$\times$10$^{-10}$ MW, respectively. These are
+extremely low values and impose no safety concerns. As is the case for the
+radioactive inventory, the decay heat generated in the \gls{FW} is not the
+major contributor to the total decay heat. The decay heat generated in the
+Pb-17Li breeder is \textapprox 2-3 orders of magnitude lower for all times
+after few minutes following shutdown while the attainable level in the SiC
+insert is 2-6 orders of magnitude lower than the level in the structure.
+
+The \gls{WDR} depends on the level of the long-term activation. For the F82H
+structure, Nb-94, Mn-53, Ni-59, and Nb-91 are the main contributors. In Pb-
+17Li, the main contributor is the Pb-205 isotope. The C-14 isotope and the
+Be-10 isotope are the main contributors in the SiC insert. The \gls{WDR}
+values for F82H structure, the Pb-17Li breeder, and the SiC insert according
+to the conservative Fetter limits are 1.3$\times$10$^{-2}$ ,
+8.7$\times$10$^{-3}$ , and 2.1$\times$10$^{-4}$ , respectively. They are thus
+much lower than unity and therefore these materials are qualified for shallow
+land burial according to the Class C limits.\citeprod{fdm1279}
+
+
+\section{Conceptual Design of Fusion Irradiation Facilities}
+
+The \gls{FNSF-AT} (originally namesd the \gls{FDF}) was a small tokamak
+concept (R = 2.49 m, r = 0.71 m) with copper magnets with consideration for
+both He and water cooling, and for \gls{DCLL} and \gls{HCCB} \gls{FW/B}
+systems.  Table \ref{table:FDF-IB} shows the impact of different \gls{IB}
+design choices on the \gls{IB} nuclear parameters.  Since the \gls{OB}
+responses are not sensitive to the \gls{IB} design choice, Table
+\ref{table:FDF-OB} shows the \gls{OB} responses as a function of different
+\gls{OB} blanket design options.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Impact of IB design on FDF nuclear parameters}
+  \label{table:FDF-IB}
+  \begin{tabular}{|l|c|c|c|c|}\hline
+    \multirow{2}{*}{\gls{IB} Design Option} & \multicolumn{2}{c|}{He-cooled shield} &  \multicolumn{2}{|c|}{Water-cooled shield} \\\cline{2-5}
+    & \gls{DCLL} & \gls{HCCB} & \gls{DCLL} & \gls{HCCB} \\\hline
+    \gls{IB} \gls{TBR} & 0.25 & 0.23 & 0.23 & 0.22 \\\hline
+OB TBR & 0.93 & 0.83 & 0.92 & 0.83 \\\hline
+Total TBR & 1.18 & 1.06 & 1.15 &1.05 \\\hline
+Peak He appm in SS VV & 1.68 & 0.80 & 0.31 & 0.29 \\\hline
+Peak He appm in FS VV & 0.10 & 0.15 & 0.07 & 0.11 \\\hline
+Peak fast neutron fluence in OH coil (10$^{19}$ n/cm$^{2}$) & 19 & 12 & 4.7 & 4.4 \\\hline
+Peak organic insulator dose in OH coil (10$^{10}$ Rads) & 21 & 11 & 4.6 & 4.4 \\\hline
+Peak fast neutron fluence in TF coil (10$^{19}$ n/cm$^{2}$) & 7.3 & 6.2 & 2.9 & 3.3 \\\hline
+Peak organic insulator dose in TF coil (10$^{10}$ Rads) & 2.2 & 1.2 & 4.8 & 4.8 \\\hline
+Shield e-fold for organic insulator dose (cm) & 7.6& 7.6& 5.5& 6.3\\\hline
+Added shield for organic insulator in OH coil (cm) & \textapprox 23& \textapprox 19& \textapprox 8& \textapprox 10\\\hline
+Added shield for organic insulator in TF coil (cm) & \textapprox 23& \textapprox 19& \textapprox 8& \textapprox 10 \\\hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Impact of blanket design on \gls{OB} nuclear parameters}
+  \label{table:FDF-OB}
+  \begin{tabular}{|l|c|c|}\hline
+    & \gls{DCLL} & \gls{HCCB} \\\hline
+Peak He appm in SS VV & 1.7 & 0.4  \\\hline
+Peak He appm in FS VV & 0.10& 0.1 \\\hline
+Peak fast neutron fluence (10$^{20}$ n/cm$^{2}$) & 18 & 1.3 \\\hline
+Peak organic insulator dose (10$^{11}$ Rads) & 13 & 1.9 \\\hline
+Added He-cooled shield for organic insulator (cm) & \textapprox 37& \textapprox 23 \\\hline
+Added H$_2$O-cooled shield for organic insulator (cm) & \textapprox 27& \textapprox 19 \\\hline
+  \end{tabular}
+\end{table}
+  
+Three-dimensional analysis led to some design modifications to improve the
+nuclear performance of this system, with an ultimate \gls{TBR} of 1.09 for the
+\gls{HCCB} option and 1.0 for the \gls{DCLL} option.  These low \gls{TBR}
+values are, in part, due to an asusmption that no tritium production occurs in
+the 16 irradiation ports.  These analyses also provided updated estimates of
+peak responses in sensitive components including both \gls{TF} and \gls{PF}
+coils.
 
