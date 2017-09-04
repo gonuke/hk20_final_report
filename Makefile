@@ -4,15 +4,13 @@ SOURCES = report.tex \
           defs.tex \
           titlepage.tex \
           intro.tex \
-          analysis.tex 
-          # thrust1.tex \
-          # thrust2.tex \
-          # thrust3.tex \
-          # thrust4.tex \
-          # thrust5.tex \
-          # summary.tex \
-          # refs.tex \
-          # refs.bib
+          analysis.tex \
+          code.tex \
+          data.tex \
+          materials.tex \
+          summary.tex \
+          refs.tex \
+          refs.bib
 
 report.pdf: ${SOURCES}
 	pdflatex report.tex
@@ -32,4 +30,4 @@ check: report.pdf
 	pdflatex report.tex | grep Citation | sort
 
 clean:
-	rm -f *.log *.ist *.glo *.aux *.acn *.out report.pdf
+	rm -f *.lo[fgt] *.toc *.bbl *.blg *.ist *.glo *.aux *.acn *.out report.pdf

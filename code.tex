@@ -20,10 +20,10 @@ tedious, time-consuming, and error-prone process.  Manual translation of the
 dimensions, surfaces and volumes that might exist in a \gls{CAD} drawing
 introduced analysis bottlenecks that often led to approximations.
 
-The \gls{DAGMC}\citeprod{dagmc_repo} toolkit was introduced as part of the
-open source \gls{MOAB}\citeref{moab} library for representing surfaces in a
+The \gls{DAGMC}\citeprod{noauthor_direct_nodate} toolkit was introduced as part of the
+open source \gls{MOAB}\citeref{tautges_moab:_2004} library for representing surfaces in a
 mesh-like data structure, and relied on capability in the
-\gls{CGM}\citeref{cgm} library for extracting geometric features.  The
+\gls{CGM}\citeref{tautges_cgm:_2001} library for extracting geometric features.  The
 principle scientific contributions developed as part of this toolkit were a
 series of accelerations that allowed the Monte Carlo process to proceed on
 these complex geometric representations at a speed that was comparable to the
@@ -34,12 +34,12 @@ will experience the next intersection.  The imprinting and merging capability
 provided by \gls{CGM} provides additional benefits, both in reducing the
 computational cost of crossing a surface, and in allowing for the implicit
 definition of the very complex non-solid space.  The latter feature results in
-large benefits in the preparation of a model.\citeprod{mc2009} It was
+large benefits in the preparation of a model.\citeprod{wilson_acceleration_2010} It was
 demonstrated and validated against a number of standard experimental
-benchmarks\citeprod{snouffer, snouffer_ms}, as well as during a joint exercise
-based on a simplified ITER geometry\citeref{iter_benchmark}, and has since
-been used in the majority of 3-D analysis in this project.\citeprod{fdm1354,
-  fdm1397}
+benchmarks\citeprod{snouffer_validation_2011}, as well as during a joint exercise
+based on a simplified ITER geometry\citeref{wilson_state---art_2008}, and has since
+been used in the majority of 3-D analysis in this project.\citeprod{sawan_three-dimensional_2006,
+  sawan_three-dimensional_2010}
 
 Other improvements have focused on robustness, most notably the introduction
 of the capability to guarantee so-called watertightness of any analysis
@@ -48,9 +48,9 @@ embedded in the \gls{MOAB} representation, and checks every curve in the
 geometry for logical consistency of the triangles from different surfaces that
 meet on each curve.  If necessary, new triangles are introduced to ensure that
 each surface has identical discretization along their common
-curves.\citeprod{smith_mrt} Other more subtly improvements were made to the
+curves.\citeprod{smith_sealing_2010} Other more subtly improvements were made to the
 algorithms to improve the robustness for complex \gls{CAD}-based
-geometries.\citeprod{smith_phd}
+geometries.\citeprod{smith_robust_2011}
 
 \subsection{Unstructured Mesh}\label{sec:umesh}
 
@@ -63,7 +63,7 @@ approximations were available for interpreting such results, the most accurate
 respresentation requires a mesh that conforms to the shape of each shell,
 composed of tetrahera.  Such a capability was added to the \gls{DAGMC} toolkit
 and was demonstrated in a number of fusion relevant
-problems.\citeref{ELMcoils}
+problems.\citeref{bohm_detailed_2012}
 
 \section{Hybrid Variance Reduction}\label{sec:hybrid}
 
@@ -77,14 +77,14 @@ geometric and energy treatments.  One solution is to use these methods
 together, with the more approximate deterministic approach providing
 acceleration paramters for the Monte Carlo solution.  The most widely used
 implementation of such a concept is known as the \gls{CADIS}
-method.\citeref{cadis}
+method.\citeref{haghighat_monte_2003}
 
 Using the \gls{CADIS} method requires the generation of a rectilinear grid
 representation of the complex \gls{CAD}-based geometry.  We implemented a
 ray-tracing approach using the same acceleration schemes developed for
 radiation transport and demonstrated that such an approach is more efficient
 than prior point sampling approaches, particularly when the geometry includes
-smaller features.\citeprod{moule, moule_ms}
+smaller features.\citeprod{moule_mesh_2009, moule_sampling_2011}
 
 As the geometries grow larger and more complex, the grid representation also
 grows, whether covering a larger domain at the same resolution or refining the
@@ -106,7 +106,7 @@ calculation.  This coarsening should also not be uniform, in order to maximize
 the utility of the acceleration parameters.  This project supported an effort
 automate both the refinement of the mesh for the deterministic calculation and
 the subsequent coarsening of the acceleration parameter mesh.  This capability
-was demonstrated on a number of different problems.\citeprod{ibrahim, ibrahim_phd}
+was demonstrated on a number of different problems.\citeprod{ibrahim_assessment_2014, biondo_accelerating_2015, ibrahim_automatic_2012}\citeref{ibrahim_acceleration_2016}
 
 \section{Shutdown Dose Rates}
 
@@ -129,9 +129,9 @@ the ray-firing approach described in \ref{sec:hybrid} is necessary to
 determine the intial material composition of the activation problem in each
 mesh voxel.  In the latter, a novel sampling technique is necessary to
 randomly select a position within an arbitrarily shaped
-tetrahedron.\citeprod{relson,relson_ms} Both of these methodologies were
+tetrahedron.\citeprod{relson_improved_2013,relson_improved_2013-1} Both of these methodologies were
 demonstrated and benchmarked using the ITER shutdown dose rate benchmark
-experiment at the Frascati Neutron Generator.\citeprod{biondo_r2s}
+experiment at the Frascati Neutron Generator.\citeprod{biondo_rigorous_2015,biondo_shutdown_2016}
 
 \section{\acrfull{GT-CADIS}}
 
@@ -155,7 +155,7 @@ are evaluated for each material and each shutdown time of interest in a
 problem, and used to develop neutron transport acceleration parameters.  This
 methodology was demonstrated on the ITER shutdown dose rate benchmark
 experiments as well as a characteristic fusion energy
-system.\citeprod{biondo_gt,biondo_snilb,biondo_phd}
+system.\citeprod{biondo_transmutation_2017,biondo_hybrid_2016}
 
 \section{Ongoing Developments}
 
