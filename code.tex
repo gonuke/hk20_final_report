@@ -9,7 +9,7 @@ the development of new software tools to easily incorporate such 3-D features,
 ideally by directly being able to use \gls{CAD} models of the systems in
 question
 
-\section{\acrfull{DAGMC}}
+\section{\acrlong{DAGMC}}
 
 The fundamental innovation was the \gls{DAGMC} toolkit that can be integrated
 with any Monte Carlo radiation transport tool to allow the direct use of
@@ -75,7 +75,7 @@ contrast, deterministic radiation transport methods are much better suited to
 shielding problems, but cannot capture effects that arise with detailed
 geometric and energy treatments.  One solution is to use these methods
 together, with the more approximate deterministic approach providing
-acceleration paramters for the Monte Carlo solution.  The most widely used
+acceleration parameters for the Monte Carlo solution.  The most widely used
 implementation of such a concept is known as the \gls{CADIS}
 method.\citeref{haghighat_monte_2003}
 
@@ -118,12 +118,12 @@ project (ITER), there is a strong motivation for predictive modeling of the
 shutdown does rates in a way that takes account of those complex geometries.
 One of the primary methodologies for this is known as the \gls{R2S}
 methodology because it performs separate radiation transport steps for the
-neutrons and the activation photons.  Over time there have been different
+neutrons and the activation photons.  Over time there have been various
 implementations with slight differences, but most implementations rely on a
 high-fidelity mesh over the entire geometry, with an activation calculation at
 each mesh location.  Leveraging the above mentioned capabilities, we have
 developed two alternatives for performing an \gls{R2S} analysis: a Cartesian
-rectilinear mesh overlayingt he whole geometry or an unstructured mesh (see
+rectilinear mesh overlaying the whole geometry or an unstructured mesh (see
 Section \ref{sec:umesh}) conforming to each component.  In the former case,
 the ray-firing approach described in \ref{sec:hybrid} is necessary to
 determine the intial material composition of the activation problem in each
@@ -140,7 +140,7 @@ integration of the above-mentioned hybrid acceleration with the \gls{R2S}
 \gls{SDR} predictions.  Although various implementations of the \gls{CADIS}
 methodology allow for the acceleration of Monte Carlo-based simulations of the
 prompt photon dose, it is more challenging to accelerate the simulation of
-delayed photon dose.  Where as cross-sections exist and can be measured for
+delayed photon dose.  Whereas cross-sections exist and can be measured for
 the production of prompt neutrons, delayed neutrons arise from a combination
 of transmutation and decay that requires an activation calculation to predict
 the exact source.  Under certain assumptions, however, it is possible generate
