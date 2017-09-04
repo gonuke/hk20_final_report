@@ -1,0 +1,52 @@
+\chapter{Nuclear Data for Fusion Applications}
+
+The nuclear data community is constantly seeking to improve the data that is
+available for nuclear analysis, particulary the neutron transport and
+transmutation cross-sections.  This results in regular changes to the standard
+data sets for all nuclear applications, some of which are adopted by the
+standard data set that is targeted at fusion neutronics applications,
+\gls{FENDL}.  Under this project, we monitor the developments of these nuclear
+data sets and test any updates to understand the impact of those updates on
+the predictions of nuclear responses in fusion energy systems.
+
+During this project, there was a new release of the fundamental US-based data
+set, ENDF/B-VII.0, some of which was incorporated in an update of the the
+international fusion nuclear data set, FENDL-2.1.  Version 2.1 of \gls{FENDL}
+includes 71 elements or isotopes.  Data for most of the isotopes/elements (40)
+were taken from ENDF/B-VI.8. Following the release of ENDF/B-VII.0 we
+performed MCNP calculations for a 1-D calculational benchmark representative
+of an early ITER design that was utilized during the FENDL development
+process. Calculations were carried out using FENDL-2.1 with the data for the
+40 isotopes/elements replaced by the recent data from ENDF/B- VII.0 and the
+results for flux, heating, dpa, and gas production were compared to those
+obtained using the FENDL-2.1 library.
+
+The results presented in this work for the ITER calculational benchmark
+clearly show that the previously observed differences in nuclear heating and
+radiation damage are removed when we use the recent correctly processed
+ENDF/B-VII.0 data. Differences in all nuclear parameters are very small
+implying that minimal impact is expected on ITER analysis and updating the
+FENDL-2.1 library is not urgently needed for ITER analysis.
+
+However, a larger effect is expected when used in analysis of other fusion
+systems with breeding blankets (Demo and power plants). Calculations for an
+inertial fusion power plant showed relatively large changes in nuclear
+parameters due to the large changes in the H-3 and Au-197 data that affect the
+energy spectrum of neutrons emitted from the ICF target. The results confirm
+the need for updating FENDL-2.1 for use in analysis of fusion systems beyond
+ITER.\citeprod{fdm1346, fdm1361, fdm1400}
+
+Similar benchmarking occurred with the release of \gls{FENDL}-3, showing a
+modest increase of the neutron flux levels in the deep penetration regions and
+a substantial increase in the gas production in steel components.  The
+comparison to experimental results showed good agreement with no substantial
+differences between FENDL-3.0 and FENDL-2.1 for most responses.  There is a
+slight trend, however, for an increase of the fast neutron flux in the
+shielding experiment and a decrease in the breeder mock-up experiments. The
+photon flux spectra measured in the bulk shield and the tungsten experiments
+are significantly better reproduced with FENDL-3.0 data. In general, FENDL-3,
+as compared to FENDL-2.1, shows an improved performance for fusion neu-
+tronics applications. It is thus recommended to ITER to replace FENDL-2.1 as
+reference data li- brary for neutronics calculation by FENDL-3.0.\citeprod{fendl3}
+
+

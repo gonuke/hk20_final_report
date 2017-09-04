@@ -1,0 +1,171 @@
+\chapter{Development of Improved Predictive Capability}
+
+Over the life of this project, there was a growing recognition of the impact
+of 3-D features on the nuclear performance of fusion energy systems, whether
+local material heterogeneity or large scale penetrations that both consume
+valuable first wall and breeding space and provide streaming paths for
+radiation to the back of the \gls{FW/B} system.  This provided motivation for
+the development of new software tools to easily incorporate such 3-D features,
+ideally by directly being able to use \gls{CAD} models of the systems in
+question
+
+\section{\acrfull{DAGMC}}
+
+The fundamental innovation was the \gls{DAGMC} toolkit that can be integrated
+with any Monte Carlo radiation transport tool to allow the direct use of
+\gls{CAD}-based geometry descriptions.  While Monte Carlo radiation transport
+has long been the preferred way to incorporate complex geometry into an
+accurate physics model, faithful representation of many features was a
+tedious, time-consuming, and error-prone process.  Manual translation of the
+dimensions, surfaces and volumes that might exist in a \gls{CAD} drawing
+introduced analysis bottlenecks that often led to approximations.
+
+The \gls{DAGMC}\citeprod{dagmc_repo} toolkit was introduced as part of the
+open source \gls{MOAB}\citeref{moab} library for representing surfaces in a
+mesh-like data structure, and relied on capability in the
+\gls{CGM}\citeref{cgm} library for extracting geometric features.  The
+principle scientific contributions developed as part of this toolkit were a
+series of accelerations that allowed the Monte Carlo process to proceed on
+these complex geometric representations at a speed that was comparable to the
+native analytic repesentation.  In particular, the use of \gls{OBB} trees
+based on the triangular facets that the solid modeling engine uses to
+represent each surface, allows for a logarithmic search for the facet that
+will experience the next intersection.  The imprinting and merging capability
+provided by \gls{CGM} provides additional benefits, both in reducing the
+computational cost of crossing a surface, and in allowing for the implicit
+definition of the very complex non-solid space.  The latter feature results in
+large benefits in the preparation of a model.\citeprod{mc2009} It was
+demonstrated and validated against a number of standard experimental
+benchmarks\citeprod{snouffer, snouffer_ms}, as well as during a joint exercise
+based on a simplified ITER geometry\citeref{iter_benchmark}, and has since
+been used in the majority of 3-D analysis in this project.\citeprod{fdm1354,
+  fdm1397}
+
+Other improvements have focused on robustness, most notably the introduction
+of the capability to guarantee so-called watertightness of any analysis
+geometry.  This algorithm takes advantage of the topological knowledge
+embedded in the \gls{MOAB} representation, and checks every curve in the
+geometry for logical consistency of the triangles from different surfaces that
+meet on each curve.  If necessary, new triangles are introduced to ensure that
+each surface has identical discretization along their common
+curves.\citeprod{smith_mrt} Other more subtly improvements were made to the
+algorithms to improve the robustness for complex \gls{CAD}-based
+geometries.\citeprod{smith_phd}
+
+\subsection{Unstructured Mesh}\label{sec:umesh}
+
+With complex geometries available for the radiation transport phase of nuclear
+analysis, it became increasingly important to support the tallying of results
+on similarly complex geometries.  Prior capability required the use of a
+rectlinear Cartesian mesh that overlays the geometry, with different
+cells/materials in many of the hexahedral voxels.  While various
+approximations were available for interpreting such results, the most accurate
+respresentation requires a mesh that conforms to the shape of each shell,
+composed of tetrahera.  Such a capability was added to the \gls{DAGMC} toolkit
+and was demonstrated in a number of fusion relevant
+problems.\citeref{ELMcoils}
+
+\section{Hybrid Variance Reduction}\label{sec:hybrid}
+
+Many fusion neutronics analyses focus on predicting the effectiveness of
+shields that protect sensitive components or personnel.  Such analyses are
+inherently challenging for Monte Carlo radiation transport, even though that
+approach is important to properly capture the 3-D features of a model.  By
+contrast, deterministic radiation transport methods are much better suited to
+shielding problems, but cannot capture effects that arise with detailed
+geometric and energy treatments.  One solution is to use these methods
+together, with the more approximate deterministic approach providing
+acceleration paramters for the Monte Carlo solution.  The most widely used
+implementation of such a concept is known as the \gls{CADIS}
+method.\citeref{cadis}
+
+Using the \gls{CADIS} method requires the generation of a rectilinear grid
+representation of the complex \gls{CAD}-based geometry.  We implemented a
+ray-tracing approach using the same acceleration schemes developed for
+radiation transport and demonstrated that such an approach is more efficient
+than prior point sampling approaches, particularly when the geometry includes
+smaller features.\citeprod{moule, moule_ms}
+
+As the geometries grow larger and more complex, the grid representation also
+grows, whether covering a larger domain at the same resolution or refining the
+resolution to capture smaller features.  Regardless of the motivation, the
+size of this grid is limited by two distinct parts of the solution
+methodology:
+\begin{enumerate}
+\item even with the domain decomposed over many parallel processors, there is
+  a maximum number of mesh voxels that can fit on each process of the
+  deterministic calculation, and
+\item there is a maximum size of the acceleration parameters for the Monte Carlo process.
+\end{enumerate}
+The refinement of the grid for the deterministic calculation should not be
+uniform, but rather should focus on resolving important features and
+heterogenities.  In addition, the second of these limits is often more
+restrictive than the first, requiring a coarsening of the acceleration
+parameters from the finest possible mesh achievable in the deterministic
+calculation.  This coarsening should also not be uniform, in order to maximize
+the utility of the acceleration parameters.  This project supported an effort
+automate both the refinement of the mesh for the deterministic calculation and
+the subsequent coarsening of the acceleration parameter mesh.  This capability
+was demonstrated on a number of different problems.\citeprod{ibrahim, ibrahim_phd}
+
+\section{Shutdown Dose Rates}
+
+Although activation has always been an important consideration in nuclear
+analysis of fusion energy systems, radiation doses have typically be estimated
+based on 1-D or cruder approximations.  With the ability to represent complex
+3-D geometries for radiation transport combined with the licensing of a real
+project (ITER), there is a strong motivation for predictive modeling of the
+shutdown does rates in a way that takes account of those complex geometries.
+One of the primary methodologies for this is known as the \gls{R2S}
+methodology because it performs separate radiation transport steps for the
+neutrons and the activation photons.  Over time there have been different
+implementations with slight differences, but most implementations rely on a
+high-fidelity mesh over the entire geometry, with an activation calculation at
+each mesh location.  Leveraging the above mentioned capabilities, we have
+developed two alternatives for performing an \gls{R2S} analysis: a Cartesian
+rectilinear mesh overlayingt he whole geometry or an unstructured mesh (see
+Section \ref{sec:umesh}) conforming to each component.  In the former case,
+the ray-firing approach described in \ref{sec:hybrid} is necessary to
+determine the intial material composition of the activation problem in each
+mesh voxel.  In the latter, a novel sampling technique is necessary to
+randomly select a position within an arbitrarily shaped
+tetrahedron.\citeprod{relson,relson_ms} Both of these methodologies were
+demonstrated and benchmarked using the ITER shutdown dose rate benchmark
+experiment at the Frascati Neutron Generator.\citeprod{biondo_r2s}
+
+\section{\acrfull{GT-CADIS}}
+
+The final capability that was supported, in part, by this project achieves an
+integration of the above-mentioned hybrid acceleration with the \gls{R2S}
+\gls{SDR} predictions.  Although various implementations of the \gls{CADIS}
+methodology allow for the acceleration of Monte Carlo-based simulations of the
+prompt photon dose, it is more challenging to accelerate the simulation of
+delayed photon dose.  Where as cross-sections exist and can be measured for
+the production of prompt neutrons, delayed neutrons arise from a combination
+of transmutation and decay that requires an activation calculation to predict
+the exact source.  Under certain assumptions, however, it is possible generate
+effective cross-sections for the production of delayed photons.  This allows
+for a multi-step approach to the \gls{CADIS} methodology in which acceleration
+parameters for the neutron transport step can be determined such that they
+ultimately result in an optimum estimate of the delayed photon dose.  The
+\gls{SNILB} approximation was shown to be valid for nearly all \gls{MFE}
+environments, thus allowing the \gls{GT-CADIS} methodology to be applied to
+such systems.  Using this methodology, problem specific pseudo-cross-sections
+are evaluated for each material and each shutdown time of interest in a
+problem, and used to develop neutron transport acceleration parameters.  This
+methodology was demonstrated on the ITER shutdown dose rate benchmark
+experiments as well as a characteristic fusion energy
+system.\citeprod{biondo_gt,biondo_snilb,biondo_phd}
+
+\section{Ongoing Developments}
+
+Three different improvements began in the final months of this project, all
+extensions of the \gls{GT-CADIS} capability:
+\begin{enumerate}
+\item rigorous propagation of statistical error from the neutron transport to
+  the delayed photon dose,
+\item extension of the pseudo-cross-sections for time-integration to account
+  for moving activated components and/or moving dose recipients, and
+\item application of the generic multi-step \gls{CADIS} capability to heat
+  generation instead of activation.
+\end{enumerate} 
