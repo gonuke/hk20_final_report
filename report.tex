@@ -1,0 +1,27 @@
+\documentclass[12pt]{report}
+
+\include{pkgs}
+
+\include{defs}
+
+\begin{document}
+\input{titlepage}
+%% \input{exec}
+\tableofcontents
+\listoffigures
+\begingroup
+\let\clearpage\relax
+\listoftables
+\endgroup
+\input{intro}
+\input{analysis}
+%% \input{thrust0}
+%% \input{thrust1}
+%% \input{thrust2}
+%% \input{thrust3}
+%% \input{thrust4}
+%% \input{thrust5}
+%% \input{summary}
+%%\input{refs}
+
+\end{document}
