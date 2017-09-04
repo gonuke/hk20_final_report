@@ -91,6 +91,7 @@ ENTRY
     year
 %           The year should contain only numerals (technically, it should end
 %           with four numerals, after purification; doesn't a begin sentence).
+    url
   }
 % There are no integer entry variables
   {}
@@ -1466,6 +1467,7 @@ FUNCTION {misc}
   format.title output
   howpublished new.block.checka
   howpublished output
+  url output
   format.date output
   new.block
   note output
