@@ -133,6 +133,31 @@ tetrahedron.\citeprod{relson_improved_2013,relson_improved_2013-1} Both of these
 demonstrated and benchmarked using the ITER shutdown dose rate benchmark
 experiment at the Frascati Neutron Generator.\citeprod{biondo_rigorous_2015,biondo_shutdown_2016}
 
+\subsection{JET DT Campaign Benchmarks}
+
+A collaboration has been established with EURATOM-JET for the neutronics
+analysis of JET.  In addition to validating the EU neutronics transport codes
+and data, the JET Project, through JET3 - DT Technology EUROfusion Consortium,
+would like to widen the scope of JET experiments by also including the
+validation of other newly developed transport codes/data used by the US.
+Specifically, the collaboration would seek to validate ADVANG, ATTILA, and
+DAG-MCNP, including the \gls{R2S} methodology that relies upon it, by using
+the experimental data to be provided by JET.
+
+Two different benchmark exercises were devised, one focusing on streaming of
+neutrons and another on the shutdown dose rate.  The former is particularly
+valuable for the validation of advanced hybrid variance reduction schemes,
+such as ADVANTG.  The other is valuable for validation of \gls{SDR}
+calculation methodologies, and particularly the \gls{R2S} methodology
+developed under this project.
+
+Because the geometric description of the JET facility is already available in
+the native MCNP text files, participating in this effort requires first
+generating a \gls{CAD}-based description.  This was performed using the
+MCNP2CAD conversion tool developed in conjunction with the \gls{DAGMC}
+toolkit.  These \gls{CAD}-based models are currently being used for
+preliminary analysis of these benchmarks.
+
 \section{\acrfull{GT-CADIS}}
 
 The final capability that was supported, in part, by this project achieves an
